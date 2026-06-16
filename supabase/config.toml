@@ -1,0 +1,10 @@
+project_id = "ropnafxzhgbtwaolzgor"
+
+[functions.check-price-alerts]
+verify_jwt = false
+
+[functions.fetch-exchange-rates]
+verify_jwt = false
+
+[functions.signout-all-sessions]
+verify_jwt = true

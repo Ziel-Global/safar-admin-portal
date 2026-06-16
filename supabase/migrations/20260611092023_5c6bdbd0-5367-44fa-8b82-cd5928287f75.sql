@@ -1,0 +1,16 @@
+REVOKE EXECUTE ON FUNCTION public.agent_analytics_daily(uuid, date, date) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.agent_revenue_by_package(uuid, date, date) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.agent_lead_sources(uuid, date, date) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.featured_metrics_for_campaigns(uuid[]) FROM PUBLIC;
+REVOKE EXECUTE ON FUNCTION public.agent_analytics_daily(uuid, date, date) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.agent_revenue_by_package(uuid, date, date) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.agent_lead_sources(uuid, date, date) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.featured_metrics_for_campaigns(uuid[]) FROM anon;
+GRANT EXECUTE ON FUNCTION public.agent_analytics_daily(uuid, date, date) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.agent_revenue_by_package(uuid, date, date) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.agent_lead_sources(uuid, date, date) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.featured_metrics_for_campaigns(uuid[]) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.agent_analytics_daily(uuid, date, date) TO service_role;
+GRANT EXECUTE ON FUNCTION public.agent_revenue_by_package(uuid, date, date) TO service_role;
+GRANT EXECUTE ON FUNCTION public.agent_lead_sources(uuid, date, date) TO service_role;
+GRANT EXECUTE ON FUNCTION public.featured_metrics_for_campaigns(uuid[]) TO service_role;

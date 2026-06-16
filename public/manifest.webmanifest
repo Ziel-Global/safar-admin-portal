@@ -1,0 +1,19 @@
+{
+  "name": "Safar — Hajj & Umrah Marketplace",
+  "short_name": "Safar",
+  "description": "The trusted marketplace for pilgrims to discover and book verified Hajj and Umrah packages from licensed agents.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["travel", "lifestyle"]
+}

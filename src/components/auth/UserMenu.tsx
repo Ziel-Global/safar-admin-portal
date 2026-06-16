@@ -1,0 +1,91 @@
+import { Link, useNavigate } from "@tanstack/react-router";
+import { LogOut, User as UserIcon, Settings, LayoutDashboard } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { optimizedFor } from "@/lib/imageUrl";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/contexts/AuthContext";
+
+function getInitials(name: string | null | undefined, email: string | null | undefined): string {
+  if (name) {
+    return name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((p) => p[0]?.toUpperCase() ?? "")
+      .join("");
+  }
+  return email?.[0]?.toUpperCase() ?? "U";
+}
+
+export function UserMenu() {
+  const { user, profile, agent, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  if (!user) return null;
+
+  const displayName = profile?.full_name ?? user.email ?? "Account";
+  const initials = getInitials(profile?.full_name, user.email);
+  const dashboardPath = profile?.role === "agent" ? "/agent/dashboard" : "/dashboard";
+  const avatarUrl = optimizedFor(agent?.logo_url ?? null, "avatar-sm");
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate({ to: "/" });
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="flex items-center gap-2 px-2">
+          <Avatar className="h-8 w-8">
+            {avatarUrl ? <AvatarImage src={avatarUrl} alt={displayName} /> : null}
+            <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
+          <span className="hidden text-sm font-medium text-foreground sm:inline-block max-w-[140px] truncate">
+            {displayName}
+          </span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuLabel className="flex flex-col">
+          <span className="text-sm font-medium truncate">{displayName}</span>
+          <span className="text-xs font-normal text-muted-foreground truncate">{user.email}</span>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link to={dashboardPath as "/dashboard"}>
+            <LayoutDashboard className="mr-2 h-4 w-4" />
+            Dashboard
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to={dashboardPath as "/dashboard"}>
+            <UserIcon className="mr-2 h-4 w-4" />
+            Profile
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to="/settings">
+            <Settings className="mr-2 h-4 w-4" />
+            Settings
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleSignOut} className="text-destructive focus:text-destructive">
+          <LogOut className="mr-2 h-4 w-4" />
+          Log out
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
