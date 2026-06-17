@@ -18,6 +18,10 @@ type CmsPage = {
 
 export const Route = createFileRoute("/pages/$slug")({
   beforeLoad: async ({ location }) => {
+    // Auth lives in localStorage — unavailable during SSR. Skipping the check on the
+    // server avoids a login redirect flash when admins open Preview in a new tab.
+    if (typeof window === "undefined") return;
+
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
       throw redirect({
