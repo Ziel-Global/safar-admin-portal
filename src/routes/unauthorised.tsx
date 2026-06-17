@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ShieldOff, LayoutDashboard } from "lucide-react";
+import { ShieldOff, ArrowLeft, LayoutDashboard } from "lucide-react";
+import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 
 export const Route = createFileRoute("/unauthorised")({
   head: () => ({
     meta: [
-      { title: "Access denied - Safar Admin" },
+      { title: "Access denied - Safar" },
       { name: "description", content: "You don't have permission to view this page." },
       { name: "robots", content: "noindex" },
     ],
@@ -16,10 +17,16 @@ export const Route = createFileRoute("/unauthorised")({
 
 function UnauthorisedPage() {
   const { profile, user } = useAuth();
-  const dashboardPath = "/admin";
+  const dashboardPath =
+    profile?.role === "admin"
+      ? "/admin"
+      : profile?.role === "agent"
+      ? "/agent/dashboard"
+      : "/dashboard";
 
   return (
-      <main className="flex min-h-screen items-center justify-center px-4 py-16">
+    <PublicLayout>
+      <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-16">
         <div className="mx-auto w-full max-w-xl text-center">
           {/* Branded illustration */}
           <div className="relative mx-auto mb-8 h-40 w-40">
@@ -40,10 +47,15 @@ function UnauthorisedPage() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild variant="outline">
+              <Link to="/">
+                <ArrowLeft className="mr-1 h-4 w-4" /> Go home
+              </Link>
+            </Button>
             {user ? (
               <Button asChild>
-                <Link to={dashboardPath}>
-                  <LayoutDashboard className="mr-1 h-4 w-4" /> Go to admin dashboard
+                <Link to={dashboardPath as "/dashboard"}>
+                  <LayoutDashboard className="mr-1 h-4 w-4" /> Go to your dashboard
                 </Link>
               </Button>
             ) : (
@@ -54,5 +66,6 @@ function UnauthorisedPage() {
           </div>
         </div>
       </main>
+    </PublicLayout>
   );
 }

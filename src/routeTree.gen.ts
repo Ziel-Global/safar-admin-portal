@@ -10,9 +10,41 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnauthorisedRouteImport } from './routes/unauthorised'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
+import { Route as FromIndexRouteImport } from './routes/from.index'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as ToolsPackingRouteImport } from './routes/tools.packing'
+import { Route as ToolsEmergencyRouteImport } from './routes/tools.emergency'
+import { Route as ToolsChecklistRouteImport } from './routes/tools.checklist'
+import { Route as RfqSentRouteImport } from './routes/rfq.sent'
+import { Route as RfqNewRouteImport } from './routes/rfq.new'
+import { Route as ReviewBookingIdRouteImport } from './routes/review.$bookingId'
+import { Route as PagesSlugRouteImport } from './routes/pages.$slug'
+import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as DashboardSavedRouteImport } from './routes/dashboard.saved'
+import { Route as AgentsSlugRouteImport } from './routes/agents.$slug'
+import { Route as AgentTemplatesRouteImport } from './routes/agent.templates'
+import { Route as AgentReviewsRouteImport } from './routes/agent.reviews'
+import { Route as AgentReferralsRouteImport } from './routes/agent.referrals'
+import { Route as AgentLeadsRouteImport } from './routes/agent.leads'
+import { Route as AgentDashboardRouteImport } from './routes/agent.dashboard'
+import { Route as AgentBillingRouteImport } from './routes/agent.billing'
+import { Route as AgentAnalyticsRouteImport } from './routes/agent.analytics'
 import { Route as AdminVerificationsRouteImport } from './routes/admin.verifications'
 import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
 import { Route as AdminRegulatoryRouteImport } from './routes/admin.regulatory'
@@ -20,11 +52,62 @@ import { Route as AdminFraudRouteImport } from './routes/admin.fraud'
 import { Route as AdminEnforcementRouteImport } from './routes/admin.enforcement'
 import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as AdminAgentsRouteImport } from './routes/admin.agents'
+import { Route as GuidesGuideTypeIndexRouteImport } from './routes/guides.$guideType.index'
+import { Route as DashboardRfqsIndexRouteImport } from './routes/dashboard.rfqs.index'
+import { Route as AgentPackagesIndexRouteImport } from './routes/agent.packages.index'
+import { Route as AgentCampaignsIndexRouteImport } from './routes/agent.campaigns.index'
+import { Route as GuidesGuideTypeSlugRouteImport } from './routes/guides.$guideType.$slug'
+import { Route as FromCityTripTypeRouteImport } from './routes/from.$city.$tripType'
+import { Route as DashboardRfqsIdRouteImport } from './routes/dashboard.rfqs.$id'
 import { Route as ApiAuthSignoutAllDevicesRouteImport } from './routes/api.auth.signout-all-devices'
+import { Route as AgentTemplatesQuotesRouteImport } from './routes/agent.templates.quotes'
+import { Route as AgentPackagesNewRouteImport } from './routes/agent.packages.new'
+import { Route as AgentOnboardingCredentialsRouteImport } from './routes/agent.onboarding.credentials'
+import { Route as AgentContentNewRouteImport } from './routes/agent.content.new'
+import { Route as AgentCampaignsNewRouteImport } from './routes/agent.campaigns.new'
+import { Route as AgentAdvertisingFeaturedRouteImport } from './routes/agent.advertising.featured'
+import { Route as AgentsSlugArticlesArticleSlugRouteImport } from './routes/agents.$slug.articles.$articleSlug'
+import { Route as AgentPackagesIdEditRouteImport } from './routes/agent.packages.$id.edit'
+import { Route as AgentPackagesIdAvailabilityRouteImport } from './routes/agent.packages.$id.availability'
 
 const UnauthorisedRoute = UnauthorisedRouteImport.update({
   id: '/unauthorised',
   path: '/unauthorised',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -32,14 +115,139 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FromIndexRoute = FromIndexRouteImport.update({
+  id: '/from/',
+  path: '/from/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsPackingRoute = ToolsPackingRouteImport.update({
+  id: '/tools/packing',
+  path: '/tools/packing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsEmergencyRoute = ToolsEmergencyRouteImport.update({
+  id: '/tools/emergency',
+  path: '/tools/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsChecklistRoute = ToolsChecklistRouteImport.update({
+  id: '/tools/checklist',
+  path: '/tools/checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RfqSentRoute = RfqSentRouteImport.update({
+  id: '/rfq/sent',
+  path: '/rfq/sent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RfqNewRoute = RfqNewRouteImport.update({
+  id: '/rfq/new',
+  path: '/rfq/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewBookingIdRoute = ReviewBookingIdRouteImport.update({
+  id: '/review/$bookingId',
+  path: '/review/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesSlugRoute = PagesSlugRouteImport.update({
+  id: '/pages/$slug',
+  path: '/pages/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesSlugRoute = PackagesSlugRouteImport.update({
+  id: '/packages/$slug',
+  path: '/packages/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardSavedRoute = DashboardSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const AgentsSlugRoute = AgentsSlugRouteImport.update({
+  id: '/agents/$slug',
+  path: '/agents/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentTemplatesRoute = AgentTemplatesRouteImport.update({
+  id: '/agent/templates',
+  path: '/agent/templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentReviewsRoute = AgentReviewsRouteImport.update({
+  id: '/agent/reviews',
+  path: '/agent/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentReferralsRoute = AgentReferralsRouteImport.update({
+  id: '/agent/referrals',
+  path: '/agent/referrals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentLeadsRoute = AgentLeadsRouteImport.update({
+  id: '/agent/leads',
+  path: '/agent/leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentDashboardRoute = AgentDashboardRouteImport.update({
+  id: '/agent/dashboard',
+  path: '/agent/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentBillingRoute = AgentBillingRouteImport.update({
+  id: '/agent/billing',
+  path: '/agent/billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentAnalyticsRoute = AgentAnalyticsRouteImport.update({
+  id: '/agent/analytics',
+  path: '/agent/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminVerificationsRoute = AdminVerificationsRouteImport.update({
@@ -77,16 +285,112 @@ const AdminAgentsRoute = AdminAgentsRouteImport.update({
   path: '/admin/agents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesGuideTypeIndexRoute = GuidesGuideTypeIndexRouteImport.update({
+  id: '/guides/$guideType/',
+  path: '/guides/$guideType/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRfqsIndexRoute = DashboardRfqsIndexRouteImport.update({
+  id: '/rfqs/',
+  path: '/rfqs/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const AgentPackagesIndexRoute = AgentPackagesIndexRouteImport.update({
+  id: '/agent/packages/',
+  path: '/agent/packages/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentCampaignsIndexRoute = AgentCampaignsIndexRouteImport.update({
+  id: '/agent/campaigns/',
+  path: '/agent/campaigns/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesGuideTypeSlugRoute = GuidesGuideTypeSlugRouteImport.update({
+  id: '/guides/$guideType/$slug',
+  path: '/guides/$guideType/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FromCityTripTypeRoute = FromCityTripTypeRouteImport.update({
+  id: '/from/$city/$tripType',
+  path: '/from/$city/$tripType',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRfqsIdRoute = DashboardRfqsIdRouteImport.update({
+  id: '/rfqs/$id',
+  path: '/rfqs/$id',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const ApiAuthSignoutAllDevicesRoute =
   ApiAuthSignoutAllDevicesRouteImport.update({
     id: '/api/auth/signout-all-devices',
     path: '/api/auth/signout-all-devices',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AgentTemplatesQuotesRoute = AgentTemplatesQuotesRouteImport.update({
+  id: '/quotes',
+  path: '/quotes',
+  getParentRoute: () => AgentTemplatesRoute,
+} as any)
+const AgentPackagesNewRoute = AgentPackagesNewRouteImport.update({
+  id: '/agent/packages/new',
+  path: '/agent/packages/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentOnboardingCredentialsRoute =
+  AgentOnboardingCredentialsRouteImport.update({
+    id: '/agent/onboarding/credentials',
+    path: '/agent/onboarding/credentials',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AgentContentNewRoute = AgentContentNewRouteImport.update({
+  id: '/agent/content/new',
+  path: '/agent/content/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentCampaignsNewRoute = AgentCampaignsNewRouteImport.update({
+  id: '/agent/campaigns/new',
+  path: '/agent/campaigns/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentAdvertisingFeaturedRoute =
+  AgentAdvertisingFeaturedRouteImport.update({
+    id: '/agent/advertising/featured',
+    path: '/agent/advertising/featured',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AgentsSlugArticlesArticleSlugRoute =
+  AgentsSlugArticlesArticleSlugRouteImport.update({
+    id: '/articles/$articleSlug',
+    path: '/articles/$articleSlug',
+    getParentRoute: () => AgentsSlugRoute,
+  } as any)
+const AgentPackagesIdEditRoute = AgentPackagesIdEditRouteImport.update({
+  id: '/agent/packages/$id/edit',
+  path: '/agent/packages/$id/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentPackagesIdAvailabilityRoute =
+  AgentPackagesIdAvailabilityRouteImport.update({
+    id: '/agent/packages/$id/availability',
+    path: '/agent/packages/$id/availability',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/compare': typeof CompareRoute
+  '/cookies': typeof CookiesRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/unauthorised': typeof UnauthorisedRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/content': typeof AdminContentRoute
@@ -95,12 +399,59 @@ export interface FileRoutesByFullPath {
   '/admin/regulatory': typeof AdminRegulatoryRoute
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/verifications': typeof AdminVerificationsRoute
+  '/agent/analytics': typeof AgentAnalyticsRoute
+  '/agent/billing': typeof AgentBillingRoute
+  '/agent/dashboard': typeof AgentDashboardRoute
+  '/agent/leads': typeof AgentLeadsRoute
+  '/agent/referrals': typeof AgentReferralsRoute
+  '/agent/reviews': typeof AgentReviewsRoute
+  '/agent/templates': typeof AgentTemplatesRouteWithChildren
+  '/agents/$slug': typeof AgentsSlugRouteWithChildren
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/packages/$slug': typeof PackagesSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
+  '/review/$bookingId': typeof ReviewBookingIdRoute
+  '/rfq/new': typeof RfqNewRoute
+  '/rfq/sent': typeof RfqSentRoute
+  '/tools/checklist': typeof ToolsChecklistRoute
+  '/tools/emergency': typeof ToolsEmergencyRoute
+  '/tools/packing': typeof ToolsPackingRoute
   '/admin/': typeof AdminIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/from/': typeof FromIndexRoute
+  '/tools/': typeof ToolsIndexRoute
+  '/agent/advertising/featured': typeof AgentAdvertisingFeaturedRoute
+  '/agent/campaigns/new': typeof AgentCampaignsNewRoute
+  '/agent/content/new': typeof AgentContentNewRoute
+  '/agent/onboarding/credentials': typeof AgentOnboardingCredentialsRoute
+  '/agent/packages/new': typeof AgentPackagesNewRoute
+  '/agent/templates/quotes': typeof AgentTemplatesQuotesRoute
   '/api/auth/signout-all-devices': typeof ApiAuthSignoutAllDevicesRoute
+  '/dashboard/rfqs/$id': typeof DashboardRfqsIdRoute
+  '/from/$city/$tripType': typeof FromCityTripTypeRoute
+  '/guides/$guideType/$slug': typeof GuidesGuideTypeSlugRoute
+  '/agent/campaigns/': typeof AgentCampaignsIndexRoute
+  '/agent/packages/': typeof AgentPackagesIndexRoute
+  '/dashboard/rfqs/': typeof DashboardRfqsIndexRoute
+  '/guides/$guideType/': typeof GuidesGuideTypeIndexRoute
+  '/agent/packages/$id/availability': typeof AgentPackagesIdAvailabilityRoute
+  '/agent/packages/$id/edit': typeof AgentPackagesIdEditRoute
+  '/agents/$slug/articles/$articleSlug': typeof AgentsSlugArticlesArticleSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/compare': typeof CompareRoute
+  '/cookies': typeof CookiesRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/unauthorised': typeof UnauthorisedRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/content': typeof AdminContentRoute
@@ -109,13 +460,61 @@ export interface FileRoutesByTo {
   '/admin/regulatory': typeof AdminRegulatoryRoute
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/verifications': typeof AdminVerificationsRoute
+  '/agent/analytics': typeof AgentAnalyticsRoute
+  '/agent/billing': typeof AgentBillingRoute
+  '/agent/dashboard': typeof AgentDashboardRoute
+  '/agent/leads': typeof AgentLeadsRoute
+  '/agent/referrals': typeof AgentReferralsRoute
+  '/agent/reviews': typeof AgentReviewsRoute
+  '/agent/templates': typeof AgentTemplatesRouteWithChildren
+  '/agents/$slug': typeof AgentsSlugRouteWithChildren
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/packages/$slug': typeof PackagesSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
+  '/review/$bookingId': typeof ReviewBookingIdRoute
+  '/rfq/new': typeof RfqNewRoute
+  '/rfq/sent': typeof RfqSentRoute
+  '/tools/checklist': typeof ToolsChecklistRoute
+  '/tools/emergency': typeof ToolsEmergencyRoute
+  '/tools/packing': typeof ToolsPackingRoute
   '/admin': typeof AdminIndexRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/from': typeof FromIndexRoute
+  '/tools': typeof ToolsIndexRoute
+  '/agent/advertising/featured': typeof AgentAdvertisingFeaturedRoute
+  '/agent/campaigns/new': typeof AgentCampaignsNewRoute
+  '/agent/content/new': typeof AgentContentNewRoute
+  '/agent/onboarding/credentials': typeof AgentOnboardingCredentialsRoute
+  '/agent/packages/new': typeof AgentPackagesNewRoute
+  '/agent/templates/quotes': typeof AgentTemplatesQuotesRoute
   '/api/auth/signout-all-devices': typeof ApiAuthSignoutAllDevicesRoute
+  '/dashboard/rfqs/$id': typeof DashboardRfqsIdRoute
+  '/from/$city/$tripType': typeof FromCityTripTypeRoute
+  '/guides/$guideType/$slug': typeof GuidesGuideTypeSlugRoute
+  '/agent/campaigns': typeof AgentCampaignsIndexRoute
+  '/agent/packages': typeof AgentPackagesIndexRoute
+  '/dashboard/rfqs': typeof DashboardRfqsIndexRoute
+  '/guides/$guideType': typeof GuidesGuideTypeIndexRoute
+  '/agent/packages/$id/availability': typeof AgentPackagesIdAvailabilityRoute
+  '/agent/packages/$id/edit': typeof AgentPackagesIdEditRoute
+  '/agents/$slug/articles/$articleSlug': typeof AgentsSlugArticlesArticleSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/compare': typeof CompareRoute
+  '/cookies': typeof CookiesRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/search': typeof SearchRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/unauthorised': typeof UnauthorisedRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/content': typeof AdminContentRoute
@@ -124,14 +523,62 @@ export interface FileRoutesById {
   '/admin/regulatory': typeof AdminRegulatoryRoute
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/verifications': typeof AdminVerificationsRoute
+  '/agent/analytics': typeof AgentAnalyticsRoute
+  '/agent/billing': typeof AgentBillingRoute
+  '/agent/dashboard': typeof AgentDashboardRoute
+  '/agent/leads': typeof AgentLeadsRoute
+  '/agent/referrals': typeof AgentReferralsRoute
+  '/agent/reviews': typeof AgentReviewsRoute
+  '/agent/templates': typeof AgentTemplatesRouteWithChildren
+  '/agents/$slug': typeof AgentsSlugRouteWithChildren
+  '/dashboard/saved': typeof DashboardSavedRoute
+  '/packages/$slug': typeof PackagesSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
+  '/review/$bookingId': typeof ReviewBookingIdRoute
+  '/rfq/new': typeof RfqNewRoute
+  '/rfq/sent': typeof RfqSentRoute
+  '/tools/checklist': typeof ToolsChecklistRoute
+  '/tools/emergency': typeof ToolsEmergencyRoute
+  '/tools/packing': typeof ToolsPackingRoute
   '/admin/': typeof AdminIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/from/': typeof FromIndexRoute
+  '/tools/': typeof ToolsIndexRoute
+  '/agent/advertising/featured': typeof AgentAdvertisingFeaturedRoute
+  '/agent/campaigns/new': typeof AgentCampaignsNewRoute
+  '/agent/content/new': typeof AgentContentNewRoute
+  '/agent/onboarding/credentials': typeof AgentOnboardingCredentialsRoute
+  '/agent/packages/new': typeof AgentPackagesNewRoute
+  '/agent/templates/quotes': typeof AgentTemplatesQuotesRoute
   '/api/auth/signout-all-devices': typeof ApiAuthSignoutAllDevicesRoute
+  '/dashboard/rfqs/$id': typeof DashboardRfqsIdRoute
+  '/from/$city/$tripType': typeof FromCityTripTypeRoute
+  '/guides/$guideType/$slug': typeof GuidesGuideTypeSlugRoute
+  '/agent/campaigns/': typeof AgentCampaignsIndexRoute
+  '/agent/packages/': typeof AgentPackagesIndexRoute
+  '/dashboard/rfqs/': typeof DashboardRfqsIndexRoute
+  '/guides/$guideType/': typeof GuidesGuideTypeIndexRoute
+  '/agent/packages/$id/availability': typeof AgentPackagesIdAvailabilityRoute
+  '/agent/packages/$id/edit': typeof AgentPackagesIdEditRoute
+  '/agents/$slug/articles/$articleSlug': typeof AgentsSlugArticlesArticleSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/compare'
+    | '/cookies'
+    | '/dashboard'
+    | '/forgot-password'
     | '/login'
+    | '/pricing'
+    | '/privacy'
+    | '/reset-password'
+    | '/search'
+    | '/settings'
+    | '/signup'
+    | '/terms'
     | '/unauthorised'
     | '/admin/agents'
     | '/admin/content'
@@ -140,12 +587,59 @@ export interface FileRouteTypes {
     | '/admin/regulatory'
     | '/admin/reviews'
     | '/admin/verifications'
+    | '/agent/analytics'
+    | '/agent/billing'
+    | '/agent/dashboard'
+    | '/agent/leads'
+    | '/agent/referrals'
+    | '/agent/reviews'
+    | '/agent/templates'
+    | '/agents/$slug'
+    | '/dashboard/saved'
+    | '/packages/$slug'
+    | '/pages/$slug'
+    | '/review/$bookingId'
+    | '/rfq/new'
+    | '/rfq/sent'
+    | '/tools/checklist'
+    | '/tools/emergency'
+    | '/tools/packing'
     | '/admin/'
+    | '/dashboard/'
+    | '/from/'
+    | '/tools/'
+    | '/agent/advertising/featured'
+    | '/agent/campaigns/new'
+    | '/agent/content/new'
+    | '/agent/onboarding/credentials'
+    | '/agent/packages/new'
+    | '/agent/templates/quotes'
     | '/api/auth/signout-all-devices'
+    | '/dashboard/rfqs/$id'
+    | '/from/$city/$tripType'
+    | '/guides/$guideType/$slug'
+    | '/agent/campaigns/'
+    | '/agent/packages/'
+    | '/dashboard/rfqs/'
+    | '/guides/$guideType/'
+    | '/agent/packages/$id/availability'
+    | '/agent/packages/$id/edit'
+    | '/agents/$slug/articles/$articleSlug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/compare'
+    | '/cookies'
+    | '/forgot-password'
     | '/login'
+    | '/pricing'
+    | '/privacy'
+    | '/reset-password'
+    | '/search'
+    | '/settings'
+    | '/signup'
+    | '/terms'
     | '/unauthorised'
     | '/admin/agents'
     | '/admin/content'
@@ -154,12 +648,60 @@ export interface FileRouteTypes {
     | '/admin/regulatory'
     | '/admin/reviews'
     | '/admin/verifications'
+    | '/agent/analytics'
+    | '/agent/billing'
+    | '/agent/dashboard'
+    | '/agent/leads'
+    | '/agent/referrals'
+    | '/agent/reviews'
+    | '/agent/templates'
+    | '/agents/$slug'
+    | '/dashboard/saved'
+    | '/packages/$slug'
+    | '/pages/$slug'
+    | '/review/$bookingId'
+    | '/rfq/new'
+    | '/rfq/sent'
+    | '/tools/checklist'
+    | '/tools/emergency'
+    | '/tools/packing'
     | '/admin'
+    | '/dashboard'
+    | '/from'
+    | '/tools'
+    | '/agent/advertising/featured'
+    | '/agent/campaigns/new'
+    | '/agent/content/new'
+    | '/agent/onboarding/credentials'
+    | '/agent/packages/new'
+    | '/agent/templates/quotes'
     | '/api/auth/signout-all-devices'
+    | '/dashboard/rfqs/$id'
+    | '/from/$city/$tripType'
+    | '/guides/$guideType/$slug'
+    | '/agent/campaigns'
+    | '/agent/packages'
+    | '/dashboard/rfqs'
+    | '/guides/$guideType'
+    | '/agent/packages/$id/availability'
+    | '/agent/packages/$id/edit'
+    | '/agents/$slug/articles/$articleSlug'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/compare'
+    | '/cookies'
+    | '/dashboard'
+    | '/forgot-password'
     | '/login'
+    | '/pricing'
+    | '/privacy'
+    | '/reset-password'
+    | '/search'
+    | '/settings'
+    | '/signup'
+    | '/terms'
     | '/unauthorised'
     | '/admin/agents'
     | '/admin/content'
@@ -168,13 +710,61 @@ export interface FileRouteTypes {
     | '/admin/regulatory'
     | '/admin/reviews'
     | '/admin/verifications'
+    | '/agent/analytics'
+    | '/agent/billing'
+    | '/agent/dashboard'
+    | '/agent/leads'
+    | '/agent/referrals'
+    | '/agent/reviews'
+    | '/agent/templates'
+    | '/agents/$slug'
+    | '/dashboard/saved'
+    | '/packages/$slug'
+    | '/pages/$slug'
+    | '/review/$bookingId'
+    | '/rfq/new'
+    | '/rfq/sent'
+    | '/tools/checklist'
+    | '/tools/emergency'
+    | '/tools/packing'
     | '/admin/'
+    | '/dashboard/'
+    | '/from/'
+    | '/tools/'
+    | '/agent/advertising/featured'
+    | '/agent/campaigns/new'
+    | '/agent/content/new'
+    | '/agent/onboarding/credentials'
+    | '/agent/packages/new'
+    | '/agent/templates/quotes'
     | '/api/auth/signout-all-devices'
+    | '/dashboard/rfqs/$id'
+    | '/from/$city/$tripType'
+    | '/guides/$guideType/$slug'
+    | '/agent/campaigns/'
+    | '/agent/packages/'
+    | '/dashboard/rfqs/'
+    | '/guides/$guideType/'
+    | '/agent/packages/$id/availability'
+    | '/agent/packages/$id/edit'
+    | '/agents/$slug/articles/$articleSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CompareRoute: typeof CompareRoute
+  CookiesRoute: typeof CookiesRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SearchRoute: typeof SearchRoute
+  SettingsRoute: typeof SettingsRoute
+  SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
   UnauthorisedRoute: typeof UnauthorisedRoute
   AdminAgentsRoute: typeof AdminAgentsRoute
   AdminContentRoute: typeof AdminContentRoute
@@ -183,8 +773,38 @@ export interface RootRouteChildren {
   AdminRegulatoryRoute: typeof AdminRegulatoryRoute
   AdminReviewsRoute: typeof AdminReviewsRoute
   AdminVerificationsRoute: typeof AdminVerificationsRoute
+  AgentAnalyticsRoute: typeof AgentAnalyticsRoute
+  AgentBillingRoute: typeof AgentBillingRoute
+  AgentDashboardRoute: typeof AgentDashboardRoute
+  AgentLeadsRoute: typeof AgentLeadsRoute
+  AgentReferralsRoute: typeof AgentReferralsRoute
+  AgentReviewsRoute: typeof AgentReviewsRoute
+  AgentTemplatesRoute: typeof AgentTemplatesRouteWithChildren
+  AgentsSlugRoute: typeof AgentsSlugRouteWithChildren
+  PackagesSlugRoute: typeof PackagesSlugRoute
+  PagesSlugRoute: typeof PagesSlugRoute
+  ReviewBookingIdRoute: typeof ReviewBookingIdRoute
+  RfqNewRoute: typeof RfqNewRoute
+  RfqSentRoute: typeof RfqSentRoute
+  ToolsChecklistRoute: typeof ToolsChecklistRoute
+  ToolsEmergencyRoute: typeof ToolsEmergencyRoute
+  ToolsPackingRoute: typeof ToolsPackingRoute
   AdminIndexRoute: typeof AdminIndexRoute
+  FromIndexRoute: typeof FromIndexRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
+  AgentAdvertisingFeaturedRoute: typeof AgentAdvertisingFeaturedRoute
+  AgentCampaignsNewRoute: typeof AgentCampaignsNewRoute
+  AgentContentNewRoute: typeof AgentContentNewRoute
+  AgentOnboardingCredentialsRoute: typeof AgentOnboardingCredentialsRoute
+  AgentPackagesNewRoute: typeof AgentPackagesNewRoute
   ApiAuthSignoutAllDevicesRoute: typeof ApiAuthSignoutAllDevicesRoute
+  FromCityTripTypeRoute: typeof FromCityTripTypeRoute
+  GuidesGuideTypeSlugRoute: typeof GuidesGuideTypeSlugRoute
+  AgentCampaignsIndexRoute: typeof AgentCampaignsIndexRoute
+  AgentPackagesIndexRoute: typeof AgentPackagesIndexRoute
+  GuidesGuideTypeIndexRoute: typeof GuidesGuideTypeIndexRoute
+  AgentPackagesIdAvailabilityRoute: typeof AgentPackagesIdAvailabilityRoute
+  AgentPackagesIdEditRoute: typeof AgentPackagesIdEditRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -196,11 +816,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UnauthorisedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -210,11 +914,151 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/from/': {
+      id: '/from/'
+      path: '/from'
+      fullPath: '/from/'
+      preLoaderRoute: typeof FromIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/admin/': {
       id: '/admin/'
       path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/packing': {
+      id: '/tools/packing'
+      path: '/tools/packing'
+      fullPath: '/tools/packing'
+      preLoaderRoute: typeof ToolsPackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/emergency': {
+      id: '/tools/emergency'
+      path: '/tools/emergency'
+      fullPath: '/tools/emergency'
+      preLoaderRoute: typeof ToolsEmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/checklist': {
+      id: '/tools/checklist'
+      path: '/tools/checklist'
+      fullPath: '/tools/checklist'
+      preLoaderRoute: typeof ToolsChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rfq/sent': {
+      id: '/rfq/sent'
+      path: '/rfq/sent'
+      fullPath: '/rfq/sent'
+      preLoaderRoute: typeof RfqSentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rfq/new': {
+      id: '/rfq/new'
+      path: '/rfq/new'
+      fullPath: '/rfq/new'
+      preLoaderRoute: typeof RfqNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review/$bookingId': {
+      id: '/review/$bookingId'
+      path: '/review/$bookingId'
+      fullPath: '/review/$bookingId'
+      preLoaderRoute: typeof ReviewBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages/$slug': {
+      id: '/pages/$slug'
+      path: '/pages/$slug'
+      fullPath: '/pages/$slug'
+      preLoaderRoute: typeof PagesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages/$slug': {
+      id: '/packages/$slug'
+      path: '/packages/$slug'
+      fullPath: '/packages/$slug'
+      preLoaderRoute: typeof PackagesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/saved': {
+      id: '/dashboard/saved'
+      path: '/saved'
+      fullPath: '/dashboard/saved'
+      preLoaderRoute: typeof DashboardSavedRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/agents/$slug': {
+      id: '/agents/$slug'
+      path: '/agents/$slug'
+      fullPath: '/agents/$slug'
+      preLoaderRoute: typeof AgentsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/templates': {
+      id: '/agent/templates'
+      path: '/agent/templates'
+      fullPath: '/agent/templates'
+      preLoaderRoute: typeof AgentTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/reviews': {
+      id: '/agent/reviews'
+      path: '/agent/reviews'
+      fullPath: '/agent/reviews'
+      preLoaderRoute: typeof AgentReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/referrals': {
+      id: '/agent/referrals'
+      path: '/agent/referrals'
+      fullPath: '/agent/referrals'
+      preLoaderRoute: typeof AgentReferralsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/leads': {
+      id: '/agent/leads'
+      path: '/agent/leads'
+      fullPath: '/agent/leads'
+      preLoaderRoute: typeof AgentLeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/dashboard': {
+      id: '/agent/dashboard'
+      path: '/agent/dashboard'
+      fullPath: '/agent/dashboard'
+      preLoaderRoute: typeof AgentDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/billing': {
+      id: '/agent/billing'
+      path: '/agent/billing'
+      fullPath: '/agent/billing'
+      preLoaderRoute: typeof AgentBillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/analytics': {
+      id: '/agent/analytics'
+      path: '/agent/analytics'
+      fullPath: '/agent/analytics'
+      preLoaderRoute: typeof AgentAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/verifications': {
@@ -266,6 +1110,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/$guideType/': {
+      id: '/guides/$guideType/'
+      path: '/guides/$guideType'
+      fullPath: '/guides/$guideType/'
+      preLoaderRoute: typeof GuidesGuideTypeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/rfqs/': {
+      id: '/dashboard/rfqs/'
+      path: '/rfqs'
+      fullPath: '/dashboard/rfqs/'
+      preLoaderRoute: typeof DashboardRfqsIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/agent/packages/': {
+      id: '/agent/packages/'
+      path: '/agent/packages'
+      fullPath: '/agent/packages/'
+      preLoaderRoute: typeof AgentPackagesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/campaigns/': {
+      id: '/agent/campaigns/'
+      path: '/agent/campaigns'
+      fullPath: '/agent/campaigns/'
+      preLoaderRoute: typeof AgentCampaignsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/$guideType/$slug': {
+      id: '/guides/$guideType/$slug'
+      path: '/guides/$guideType/$slug'
+      fullPath: '/guides/$guideType/$slug'
+      preLoaderRoute: typeof GuidesGuideTypeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/from/$city/$tripType': {
+      id: '/from/$city/$tripType'
+      path: '/from/$city/$tripType'
+      fullPath: '/from/$city/$tripType'
+      preLoaderRoute: typeof FromCityTripTypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/rfqs/$id': {
+      id: '/dashboard/rfqs/$id'
+      path: '/rfqs/$id'
+      fullPath: '/dashboard/rfqs/$id'
+      preLoaderRoute: typeof DashboardRfqsIdRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/api/auth/signout-all-devices': {
       id: '/api/auth/signout-all-devices'
       path: '/api/auth/signout-all-devices'
@@ -273,12 +1166,129 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSignoutAllDevicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent/templates/quotes': {
+      id: '/agent/templates/quotes'
+      path: '/quotes'
+      fullPath: '/agent/templates/quotes'
+      preLoaderRoute: typeof AgentTemplatesQuotesRouteImport
+      parentRoute: typeof AgentTemplatesRoute
+    }
+    '/agent/packages/new': {
+      id: '/agent/packages/new'
+      path: '/agent/packages/new'
+      fullPath: '/agent/packages/new'
+      preLoaderRoute: typeof AgentPackagesNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/onboarding/credentials': {
+      id: '/agent/onboarding/credentials'
+      path: '/agent/onboarding/credentials'
+      fullPath: '/agent/onboarding/credentials'
+      preLoaderRoute: typeof AgentOnboardingCredentialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/content/new': {
+      id: '/agent/content/new'
+      path: '/agent/content/new'
+      fullPath: '/agent/content/new'
+      preLoaderRoute: typeof AgentContentNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/campaigns/new': {
+      id: '/agent/campaigns/new'
+      path: '/agent/campaigns/new'
+      fullPath: '/agent/campaigns/new'
+      preLoaderRoute: typeof AgentCampaignsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/advertising/featured': {
+      id: '/agent/advertising/featured'
+      path: '/agent/advertising/featured'
+      fullPath: '/agent/advertising/featured'
+      preLoaderRoute: typeof AgentAdvertisingFeaturedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agents/$slug/articles/$articleSlug': {
+      id: '/agents/$slug/articles/$articleSlug'
+      path: '/articles/$articleSlug'
+      fullPath: '/agents/$slug/articles/$articleSlug'
+      preLoaderRoute: typeof AgentsSlugArticlesArticleSlugRouteImport
+      parentRoute: typeof AgentsSlugRoute
+    }
+    '/agent/packages/$id/edit': {
+      id: '/agent/packages/$id/edit'
+      path: '/agent/packages/$id/edit'
+      fullPath: '/agent/packages/$id/edit'
+      preLoaderRoute: typeof AgentPackagesIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/packages/$id/availability': {
+      id: '/agent/packages/$id/availability'
+      path: '/agent/packages/$id/availability'
+      fullPath: '/agent/packages/$id/availability'
+      preLoaderRoute: typeof AgentPackagesIdAvailabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardSavedRoute: typeof DashboardSavedRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardRfqsIdRoute: typeof DashboardRfqsIdRoute
+  DashboardRfqsIndexRoute: typeof DashboardRfqsIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardSavedRoute: DashboardSavedRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+  DashboardRfqsIdRoute: DashboardRfqsIdRoute,
+  DashboardRfqsIndexRoute: DashboardRfqsIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
+interface AgentTemplatesRouteChildren {
+  AgentTemplatesQuotesRoute: typeof AgentTemplatesQuotesRoute
+}
+
+const AgentTemplatesRouteChildren: AgentTemplatesRouteChildren = {
+  AgentTemplatesQuotesRoute: AgentTemplatesQuotesRoute,
+}
+
+const AgentTemplatesRouteWithChildren = AgentTemplatesRoute._addFileChildren(
+  AgentTemplatesRouteChildren,
+)
+
+interface AgentsSlugRouteChildren {
+  AgentsSlugArticlesArticleSlugRoute: typeof AgentsSlugArticlesArticleSlugRoute
+}
+
+const AgentsSlugRouteChildren: AgentsSlugRouteChildren = {
+  AgentsSlugArticlesArticleSlugRoute: AgentsSlugArticlesArticleSlugRoute,
+}
+
+const AgentsSlugRouteWithChildren = AgentsSlugRoute._addFileChildren(
+  AgentsSlugRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CompareRoute: CompareRoute,
+  CookiesRoute: CookiesRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SearchRoute: SearchRoute,
+  SettingsRoute: SettingsRoute,
+  SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
   UnauthorisedRoute: UnauthorisedRoute,
   AdminAgentsRoute: AdminAgentsRoute,
   AdminContentRoute: AdminContentRoute,
@@ -287,8 +1297,38 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRegulatoryRoute: AdminRegulatoryRoute,
   AdminReviewsRoute: AdminReviewsRoute,
   AdminVerificationsRoute: AdminVerificationsRoute,
+  AgentAnalyticsRoute: AgentAnalyticsRoute,
+  AgentBillingRoute: AgentBillingRoute,
+  AgentDashboardRoute: AgentDashboardRoute,
+  AgentLeadsRoute: AgentLeadsRoute,
+  AgentReferralsRoute: AgentReferralsRoute,
+  AgentReviewsRoute: AgentReviewsRoute,
+  AgentTemplatesRoute: AgentTemplatesRouteWithChildren,
+  AgentsSlugRoute: AgentsSlugRouteWithChildren,
+  PackagesSlugRoute: PackagesSlugRoute,
+  PagesSlugRoute: PagesSlugRoute,
+  ReviewBookingIdRoute: ReviewBookingIdRoute,
+  RfqNewRoute: RfqNewRoute,
+  RfqSentRoute: RfqSentRoute,
+  ToolsChecklistRoute: ToolsChecklistRoute,
+  ToolsEmergencyRoute: ToolsEmergencyRoute,
+  ToolsPackingRoute: ToolsPackingRoute,
   AdminIndexRoute: AdminIndexRoute,
+  FromIndexRoute: FromIndexRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
+  AgentAdvertisingFeaturedRoute: AgentAdvertisingFeaturedRoute,
+  AgentCampaignsNewRoute: AgentCampaignsNewRoute,
+  AgentContentNewRoute: AgentContentNewRoute,
+  AgentOnboardingCredentialsRoute: AgentOnboardingCredentialsRoute,
+  AgentPackagesNewRoute: AgentPackagesNewRoute,
   ApiAuthSignoutAllDevicesRoute: ApiAuthSignoutAllDevicesRoute,
+  FromCityTripTypeRoute: FromCityTripTypeRoute,
+  GuidesGuideTypeSlugRoute: GuidesGuideTypeSlugRoute,
+  AgentCampaignsIndexRoute: AgentCampaignsIndexRoute,
+  AgentPackagesIndexRoute: AgentPackagesIndexRoute,
+  GuidesGuideTypeIndexRoute: GuidesGuideTypeIndexRoute,
+  AgentPackagesIdAvailabilityRoute: AgentPackagesIdAvailabilityRoute,
+  AgentPackagesIdEditRoute: AgentPackagesIdEditRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

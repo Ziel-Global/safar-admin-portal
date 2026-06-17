@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { LogOut } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AdminSidebar } from "./AdminSidebar";
 import { Button } from "@/components/ui/button";
@@ -21,8 +20,8 @@ export function AdminLayout({
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await signOut();
-    navigate({ to: "/" });
+    await signOut({ silent: true });
+    navigate({ to: "/login", replace: true });
   };
 
   return (
@@ -37,7 +36,6 @@ export function AdminLayout({
               {headerExtras}
               <NotificationBell />
               <Button variant="outline" size="sm" onClick={handleLogout}>
-                <LogOut className="mr-2 h-4 w-4" />
                 Logout
               </Button>
             </div>

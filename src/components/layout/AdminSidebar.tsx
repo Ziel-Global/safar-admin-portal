@@ -7,7 +7,7 @@ import {
   Flag,
   Gavel,
   ShieldAlert,
-  LogOut,
+  MoonStar,
   FileText,
   Megaphone,
 } from "lucide-react";
@@ -44,14 +44,14 @@ export function AdminSidebar() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await signOut();
-    navigate({ to: "/" });
+    await signOut({ silent: true });
+    navigate({ to: "/login", replace: true });
   };
 
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-sidebar-border">
-        <Link to="/" className="flex items-center gap-2 px-2 py-1 font-bold text-sidebar-primary">
+        <Link to="/admin" className="flex items-center gap-2 px-2 py-1 font-bold text-sidebar-primary">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-destructive text-destructive-foreground">
             <ShieldAlert className="h-4 w-4" />
           </span>
@@ -88,7 +88,7 @@ export function AdminSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton onClick={handleLogout}>
-                  <LogOut className="h-4 w-4" />
+                  <MoonStar className="h-4 w-4" />
                   {!collapsed && <span>Logout</span>}
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -99,4 +99,3 @@ export function AdminSidebar() {
     </Sidebar>
   );
 }
-

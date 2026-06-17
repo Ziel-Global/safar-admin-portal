@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { LogOut, User as UserIcon, Settings, LayoutDashboard } from "lucide-react";
+import { LogOut, LayoutDashboard } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { optimizedFor } from "@/lib/imageUrl";
@@ -33,12 +33,11 @@ export function UserMenu() {
 
   const displayName = profile?.full_name ?? user.email ?? "Account";
   const initials = getInitials(profile?.full_name, user.email);
-  const dashboardPath = profile?.role === "agent" ? "/agent/dashboard" : "/dashboard";
   const avatarUrl = optimizedFor(agent?.logo_url ?? null, "avatar-sm");
 
   const handleSignOut = async () => {
-    await signOut();
-    navigate({ to: "/" });
+    await signOut({ silent: true });
+    navigate({ to: "/login", replace: true });
   };
 
   return (
@@ -51,33 +50,21 @@ export function UserMenu() {
               {initials}
             </AvatarFallback>
           </Avatar>
-          <span className="hidden text-sm font-medium text-foreground sm:inline-block max-w-[140px] truncate">
+          <span className="hidden max-w-[140px] truncate text-sm font-medium text-foreground sm:inline-block">
             {displayName}
           </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="flex flex-col">
-          <span className="text-sm font-medium truncate">{displayName}</span>
-          <span className="text-xs font-normal text-muted-foreground truncate">{user.email}</span>
+          <span className="truncate text-sm font-medium">{displayName}</span>
+          <span className="truncate text-xs font-normal text-muted-foreground">{user.email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link to={dashboardPath as "/dashboard"}>
+          <Link to="/admin">
             <LayoutDashboard className="mr-2 h-4 w-4" />
-            Dashboard
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link to={dashboardPath as "/dashboard"}>
-            <UserIcon className="mr-2 h-4 w-4" />
-            Profile
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link to="/settings">
-            <Settings className="mr-2 h-4 w-4" />
-            Settings
+            Admin dashboard
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

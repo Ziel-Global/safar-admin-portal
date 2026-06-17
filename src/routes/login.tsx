@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { PublicLayout } from "@/components/layout/PublicLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
+import { Loader2, ShieldAlert } from "lucide-react";
 
 export const Route = createFileRoute("/login")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -15,10 +16,10 @@ export const Route = createFileRoute("/login")({
   }),
   head: () => ({
     meta: [
-      { title: "Admin Login - Safar" },
-      { name: "description", content: "Sign in to access the Safar admin portal." },
-      { property: "og:title", content: "Admin Login - Safar" },
-      { property: "og:description", content: "Sign in to access the Safar admin portal." },
+      { title: "Login - Safar" },
+      { name: "description", content: "Sign in to your Safar account to manage Hajj and Umrah bookings." },
+      { property: "og:title", content: "Login - Safar" },
+      { property: "og:description", content: "Sign in to your Safar account." },
     ],
   }),
   component: LoginPage,
@@ -38,6 +39,7 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
 
   // Only auto-redirect already-logged-in users when they were explicitly sent
   // here with a ?redirect= target (e.g. by a protected route). When a user
@@ -48,13 +50,14 @@ function LoginPage() {
   useEffect(() => {
     if (loading || !user || !profile) return;
     const intended = safeRedirect(search.redirect);
-    if (!intended) return; // deliberate visit — render the login page
-    // SPA navigation only — never window.location here, it causes a refresh loop
-    // by re-mounting AuthContext mid-redirect.
-    navigate({ to: intended as "/admin", replace: true });
-  }, [loading, user, profile, navigate, search.redirect]);
-
-  const dashboardPath = "/admin";
+    if (intended) {
+      navigate({ to: intended as "/admin", replace: true });
+      return;
+    }
+    if (justLoggedIn) {
+      navigate({ to: "/admin", replace: true });
+    }
+  }, [loading, user, profile, navigate, search.redirect, justLoggedIn]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -66,16 +69,23 @@ function LoginPage() {
       toast.error(error.message);
       return;
     }
+    setJustLoggedIn(true);
     toast.success("Welcome back");
-    // Redirect handled by the effect above once profile loads
   };
 
   return (
-      <div className="flex min-h-screen items-center justify-center px-4 py-16">
+    <PublicLayout showFooter={false} staticHeader>
+      <div className="flex min-h-[calc(100vh-4.5rem)] items-center justify-center px-4 py-16">
         <Card className="w-full max-w-md border-border bg-card shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Admin sign in</CardTitle>
-            <CardDescription>Sign in to access the admin portal</CardDescription>
+            <div className="mx-auto mb-4 flex items-center justify-center gap-2.5">
+              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-primary text-primary-foreground">
+                <ShieldAlert className="h-5 w-5" />
+              </span>
+              <span className="text-xl font-bold tracking-tight text-primary">Safar Admin</span>
+            </div>
+            <CardTitle className="text-2xl">Welcome back</CardTitle>
+            <CardDescription>Sign in to the Safar Admin console</CardDescription>
           </CardHeader>
           <CardContent>
             {user && profile && (
@@ -89,7 +99,7 @@ function LoginPage() {
                     type="button"
                     size="sm"
                     variant="outline"
-                    onClick={() => navigate({ to: dashboardPath })}
+                    onClick={() => navigate({ to: "/admin" })}
                   >
                     Continue to admin
                   </Button>
@@ -117,7 +127,12 @@ function LoginPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="password">Password</Label>
+                  <Link to="/forgot-password" className="text-xs text-primary hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
                 <Input
                   id="password"
                   type="password"
@@ -139,5 +154,6 @@ function LoginPage() {
           </CardContent>
         </Card>
       </div>
+    </PublicLayout>
   );
 }

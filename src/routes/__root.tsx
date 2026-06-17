@@ -1,6 +1,7 @@
 import {
   Outlet,
   Link,
+  redirect,
   createRootRouteWithContext,
   HeadContent,
   Scripts,
@@ -16,6 +17,22 @@ interface RouterContext {
   queryClient: QueryClient;
 }
 
+const ADMIN_ALLOWED_PATHS = new Set([
+  "/login",
+  "/forgot-password",
+  "/reset-password",
+  "/unauthorised",
+]);
+
+function isAllowedPath(pathname: string): boolean {
+  if (pathname.startsWith("/admin")) return true;
+  if (pathname.startsWith("/agents/")) return true;
+  if (pathname.startsWith("/packages/")) return true;
+  if (pathname.startsWith("/pages/")) return true;
+  if (pathname.startsWith("/api/")) return true;
+  return ADMIN_ALLOWED_PATHS.has(pathname);
+}
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -27,10 +44,10 @@ function NotFoundComponent() {
         </p>
         <div className="mt-6">
           <Link
-            to="/"
+            to="/admin"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Go to admin
           </Link>
         </div>
       </div>
@@ -39,29 +56,40 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
+  beforeLoad: ({ location }) => {
+    if (!isAllowedPath(location.pathname)) {
+      throw redirect({ to: "/admin", replace: true });
+    }
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Safar Admin Portal" },
+      { title: "Ana Safir - Trusted Hajj & Umrah Packages" },
       {
         name: "description",
-        content: "Safar admin portal for moderation, compliance, and platform operations.",
+        content:
+          "Safar is the trusted marketplace for Hajj and Umrah pilgrims to discover, compare, and book verified packages from licensed travel agents.",
       },
       { name: "author", content: "Safar" },
-      { property: "og:title", content: "Safar Admin Portal" },
+      { property: "og:title", content: "Ana Safir - Trusted Hajj & Umrah Packages" },
       {
         property: "og:description",
-        content: "Safar admin portal for moderation, compliance, and platform operations.",
+        content:
+          "Find your trusted path to Makkah & Madinah. Compare verified Hajj and Umrah packages from licensed agents.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@safar" },
+      { name: "twitter:site", content: "@Safar" },
       { name: "theme-color", content: "#0f766e" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
-      { name: "apple-mobile-web-app-title", content: "Safar Admin" },
-      { name: "twitter:title", content: "Safar Admin Portal" },
-      { name: "twitter:description", content: "Safar admin portal for moderation, compliance, and platform operations." },
+      { name: "apple-mobile-web-app-title", content: "Safar" },
+      { name: "twitter:title", content: "Ana Safir - Trusted Hajj & Umrah Packages" },
+      { name: "description", content: "Ana Safir: Your Sacred Journey is a Hajj & Umrah travel marketplace app." },
+      { property: "og:description", content: "Ana Safir: Your Sacred Journey is a Hajj & Umrah travel marketplace app." },
+      { name: "twitter:description", content: "Ana Safir: Your Sacred Journey is a Hajj & Umrah travel marketplace app." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2d62e69a-d5c7-41bd-9944-a0111928e30b/id-preview-e38e05d4--b48ec71f-046a-4006-a0c1-ce1ac58a4145.lovable.app-1776694017345.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2d62e69a-d5c7-41bd-9944-a0111928e30b/id-preview-e38e05d4--b48ec71f-046a-4006-a0c1-ce1ac58a4145.lovable.app-1776694017345.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
