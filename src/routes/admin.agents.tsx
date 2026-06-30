@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { AdminLayout } from "@/components/layout/AdminLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -18,10 +19,22 @@ export const Route = createFileRoute("/admin/agents")({
   }),
   component: () => (
     <ProtectedRoute requireRole="admin">
-      <AdminAgentsPage />
+      <AdminAgentsRouteShell />
     </ProtectedRoute>
   ),
 });
+
+function AdminAgentsRouteShell() {
+  const location = useLocation();
+
+  // /admin/agents has nested routes (e.g. /admin/agents/access-requests).
+  // Render those children instead of always forcing the agents list UI.
+  if (location.pathname !== "/admin/agents") {
+    return <Outlet />;
+  }
+
+  return <AdminAgentsPage />;
+}
 
 interface AgentRow {
   id: string;
@@ -73,9 +86,14 @@ function AdminAgentsPage() {
   return (
     <AdminLayout title="Admin · Agents">
       <div className="mx-auto w-full max-w-6xl space-y-6">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">All agents</h2>
-          <p className="mt-1 text-sm text-muted-foreground">{agents.length} agents on the platform</p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">All agents</h2>
+            <p className="mt-1 text-sm text-muted-foreground">{agents.length} agents on the platform</p>
+          </div>
+          <Button asChild variant="outline" size="sm">
+            <Link to="/admin/agents/access-requests">Access requests</Link>
+          </Button>
         </div>
 
         <div className="relative">

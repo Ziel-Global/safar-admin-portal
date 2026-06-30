@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Users,
+  UserPlus,
   ShieldCheck,
   Star,
   Flag,
@@ -28,6 +29,7 @@ import { useAuth } from "@/contexts/AuthContext";
 const adminItems = [
   { title: "Dashboard", url: "/admin", icon: LayoutDashboard },
   { title: "Agents", url: "/admin/agents", icon: Users },
+  { title: "Access requests", url: "/admin/agents/access-requests", icon: UserPlus },
   { title: "Verifications", url: "/admin/verifications", icon: ShieldCheck },
   { title: "Reviews", url: "/admin/reviews", icon: Star },
   { title: "Fraud reports", url: "/admin/fraud", icon: Flag },
@@ -67,7 +69,9 @@ export function AdminSidebar() {
                 const isActive =
                   item.url === "/admin"
                     ? location.pathname === "/admin"
-                    : location.pathname.startsWith(item.url);
+                    : item.url === "/admin/agents"
+                      ? location.pathname === "/admin/agents"
+                      : location.pathname.startsWith(item.url);
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={isActive}>

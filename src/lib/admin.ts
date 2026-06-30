@@ -8,7 +8,9 @@ export type AdminAction =
   | "enforcement.issue"
   | "enforcement.revoke"
   | "verification.approve"
-  | "verification.reject";
+  | "verification.reject"
+  | "agent_access.approve"
+  | "agent_access.reject";
 
 export async function logAdminAction(
   adminId: string,
